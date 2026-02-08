@@ -15,7 +15,8 @@ public class CountingJob implements Runnable {
   
   @Override
   public void run() {
-    NaiveDispatcher.printNumbers(jobName, start, length);
+
+      new Thread(() -> NaiveDispatcher.printNumbers(jobName, start, length)).start();
   }
   
 }

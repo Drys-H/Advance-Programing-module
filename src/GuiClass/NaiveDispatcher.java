@@ -32,9 +32,12 @@ public class NaiveDispatcher implements Runnable {
   public static void main(String[] args) {
    
     NaiveDispatcher dispatcher = new NaiveDispatcher();
-    
-    dispatcher.queueRunnable(new CountingJob("Bob", 0, 15));
-    dispatcher.queueRunnable(new CountingJob("Cat", 0, 15));
+
+      dispatcher.queueRunnable(new Decomposer(dispatcher, "Bob", 0, 15));
+      dispatcher.queueRunnable(new Decomposer(dispatcher, "Cat", 0, 15));
+
+    //dispatcher.queueRunnable(new CountingJob("Bob", 0, 15));
+    //dispatcher.queueRunnable(new CountingJob("Cat", 0, 15));
     
     dispatcher.run();
   }
